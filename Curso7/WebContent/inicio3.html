@@ -23,7 +23,7 @@ function procesarEventos()
           {
 			alert("He recibido " + xmlHttp.responseText); //responseText almacena el body(en este caso string de json)
 			var objetoJson = JSON.parse(xmlHttp.responseText);//una clase  deserializo objeto nombre y edad 
-			alert ("Persona = " + objetoJson.nombre);
+			alert ("Persona = " + objetoJson.nombre);//f
 			alert ("Persona = " + objetoJson.edad);
 			document.getElementById("nombre").value = objetoJson.nombre;
 			document.getElementById("edad").value = objetoJson.edad;
