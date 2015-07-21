@@ -33,7 +33,7 @@ public class CargaJSON extends HttpServlet {
 		// TODO Auto-generated method stub
 		Persona persona = new Persona("Jose", 23);
 		Gson gson = new Gson();
-		String mensajeJson = gson.toJson(persona);
+		String mensajeJson = gson.toJson(persona);  //serializando el objeto mensajeJson
 		
 		
 		response.setContentType("application/json");
