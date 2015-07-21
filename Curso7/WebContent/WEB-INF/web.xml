@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd" id="WebApp_ID" version="3.0">
+  <display-name>Curso7</display-name>
+  <welcome-file-list>
+    <welcome-file>inicio.html</welcome-file>
+    <welcome-file>index.htm</welcome-file>
+    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>default.html</welcome-file>
+    <welcome-file>default.htm</welcome-file>
+    <welcome-file>default.jsp</welcome-file>
+  </welcome-file-list>
+  
+  
+    <!-- servlet para ejemplo de ajax-->
+   	 
+   	   <servlet>
+      <description>Ejemplo de prueba</description>
+      <display-name>CargarMenu</display-name>
+      <servlet-name>CargarMenu</servlet-name>
+      <servlet-class>com.ejemplo.servlet.CargarMenu</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>CargarMenu</servlet-name>
+      <url-pattern>/CargarMenu</url-pattern>
+      
+  </servlet-mapping>
+  
+     	   <servlet>
+      <description>Ejemplo de prueba</description>
+      <display-name>CargaJSON</display-name>
+      <servlet-name>CargaJSON</servlet-name>
+      <servlet-class>com.ejemplo.servlet.CargaJSON</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>CargaJSON</servlet-name>
+      <url-pattern>/CargaJSON</url-pattern>
+      
+  </servlet-mapping>
+  
+  
+       	   <servlet>
+      <description>Ejemplo de prueba</description>
+      <display-name>CargaMenuSelect</display-name>
+      <servlet-name>CargaMenuSelect</servlet-name>
+      <servlet-class>com.ejemplo.servlet.CargaMenuSelect</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>CargaMenuSelect</servlet-name>
+      <url-pattern>/CargaMenuSelect</url-pattern>
+      
+  </servlet-mapping>
+  
+  
+        	   <servlet>
+      <description>Ejemplo de prueba</description>
+      <display-name>CargarTrabajadores</display-name>
+      <servlet-name>CargarTrabajadores</servlet-name>
+      <servlet-class>com.ejemplo.servlet.CargarTrabajadores</servlet-class>
+  </servlet>
+  
+  <servlet-mapping>
+      <servlet-name>CargarTrabajadores</servlet-name>
+      <url-pattern>/CargarTrabajadores</url-pattern>
+      
+  </servlet-mapping>
+  
+  
+</web-app>
