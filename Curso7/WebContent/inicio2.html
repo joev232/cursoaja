@@ -32,10 +32,16 @@ function procesarEventos()
 			//document.getElementById("cajatexto").value = xmlHttp.responseText;
 			
 			
+          	//var lista_dptos = xmlHttp.responseXML.getElementsByTagName("id");
           	var lista_dptos = xmlHttp.responseXML.getElementsByTagName("departamento");
+          	
+          	
+          	
           	var nelementos = lista_dptos.length;
           	var opcion;
           	var desplegable = document.getElementById("departamentos");
+          	
+          	
           	
           	var id = null;
           	var nombre = null;
@@ -65,7 +71,7 @@ function procesarEventos()
           alert("Ha ocurrido un error"+ xmlHttp.status +":"+ xmlHttp.statusText);
       }
   }
-
+  
 }
 
 
@@ -76,39 +82,45 @@ function procesarTrabajadores()
   {
       if(xmlHttp.status==200)// y el código de la cabecera http es bueno
           {
-			alert("He recibido " + xmlHttp.responseText);
-			
+			alert("He recibidoo " + xmlHttp.responseText);
+			var mitabla=document.getElementById("tabla");
 			var parser = new DOMParser();
 			var xmlDoc = parser.parseFromString(xmlHttp.responseText, "application/xml");
 			
+        	var lista_id = xmlDoc.getElementsByTagName("id");
         	var lista_empleados = xmlDoc.getElementsByTagName("empleado");
           	var nelementos = lista_empleados.length;
-          	var opcion;
-          	var desplegable = document.getElementById("empleados");
+
           	
           	var id = null;
           	var nombre = null;
-     
-          	var aux=desplegable.length;
-          	
-          	for (var j=0; j < aux; j++)
-          	{//para inicialiar desplegable
-          		desplegable.remove(0);
-          		
-          	}
-          	
-			for (var i= 0; i < nelementos; i++) {
+      
+          	//var aux=desplegable.length;
+// 			for (var j=0; j < aux; j++) 
+//            	{//para inicialiar desplegable 
+//            		desplegable.remove(0); 
+           		 
+//            	} 
+
+   		for (var i= 0; i < nelementos; i++) {
 				
 				
 				/*var id = lista_dptos[i].children[0].textContent;
 				var nombre = lista_dptos[i].children[1].textContent;*/ //FORMA MÁS ELEGANTE Y LÓGICA, PERO NO COMPATIBLE CON IE :S
-				
+				 id = lista_id[i].childNodes[0].data;
 				 nombre = lista_empleados[i].childNodes[0].data;//en vez de childNodes[0]
 				
-				
-				opcion = new Option(nombre, nombre);//Creo la opción
-				desplegable.options[i] = opcion;//la seteo. POdría haber usado como índice [i]
 				 
+				var row=mitabla.insertRow(-1);
+				 
+				 var cel1=row.insertCell(0);
+				 var cel2=row.insertCell(1);
+				
+				 cel1.innerHTML=id;
+				 cel2.innerHTML=nombre;
+				
+				//opcion = new Option(nombre, nombre);//Creo la opción
+				//desplegable.options[i] = opcion;//la seteo. POdría haber usado como índice [i]
 				
 			}
           }
@@ -119,6 +131,7 @@ function procesarTrabajadores()
   }
 
 }
+
 
 function listarTrabajadores()
 {
@@ -139,18 +152,33 @@ function listarTrabajadores()
 </script>
 </head>
 
-
 <body>
 
 <table>
 	<tr><td><select id="departamentos" onchange="listarTrabajadores();">
    			
-</select>
-	</td>
-	<td><select id="empleados" ></select>
-	</td></tr>
-	<tr><td><input type="submit" value="Buscar Departamentos" onclick="rellenaCaja();"></td></tr>
+			</select>
+			</td></tr>
+			<tr><td><input type="submit" value="Buscar Departamentos" onclick="rellenaCaja();"></td></tr>
 </table>
+
+
+<table  id="tabla" border="1" >
+
+</table>	
+
+		
+
+<!-- <table> -->
+<!-- 	<tr><td><select id="departamentos" onchange="listarTrabajadores();"> -->
+   			
+<!-- </select> -->
+<!-- 	</td> -->
+	
+<!-- 	<td><select id="empleados"  ></select> -->
+<!-- 	</td></tr> -->
+<!-- 	<tr><td><input type="submit" value="Buscar Departamentos" onclick="rellenaCaja();"></td></tr> -->
+<!-- </table> -->
  
 
 </body>

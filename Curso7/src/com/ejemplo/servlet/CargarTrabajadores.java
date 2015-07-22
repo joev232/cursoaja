@@ -46,7 +46,7 @@ public class CargarTrabajadores extends HttpServlet {
 			department_id = request.getParameter("dpto");
 			conexion = Pool.getConnection();
 			st = conexion.createStatement();
-			rs = st.executeQuery("select first_name from employees where department_id = " + department_id);
+			rs = st.executeQuery("select  EMPLOYEE_ID,first_name from employees where department_id = " + department_id);
 			
 			
 			response.setContentType("text/xml");
@@ -60,9 +60,11 @@ public class CargarTrabajadores extends HttpServlet {
 			
 			out.println("<empleados>");
 			
+			
 			while (rs.next())
-			{//envio el cuerpo los nomnbres
-				out.println("<empleado>"+ rs.getString(1)+"</empleado>");
+			{//envio el cuerpo los nomnbres y id
+				out.println("<id>"+ rs.getString(1)+"</id>");
+				out.println("<empleado>"+ rs.getString(2)+"</empleado>");
 			}
 			out.println("</empleados>");
 			
