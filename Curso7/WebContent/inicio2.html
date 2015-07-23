@@ -83,7 +83,16 @@ function procesarTrabajadores()
       if(xmlHttp.status==200)// y el código de la cabecera http es bueno
           {
 			alert("He recibidoo " + xmlHttp.responseText);
+			
 			var mitabla=document.getElementById("tabla");
+      
+// 			if(null != mitabla){ //SI NO DEVUELVE NADA LA TABLA NO EXISTE Y NO HAY QUE BORRARLA 
+// 				tablaCreada.remove() 
+// 			}
+			
+			
+		
+			
 			var parser = new DOMParser();
 			var xmlDoc = parser.parseFromString(xmlHttp.responseText, "application/xml");
 			
@@ -102,8 +111,13 @@ function procesarTrabajadores()
            		 
 //            	} 
 
+
+ document.getElementById("tabla").deleteRow(0); 
+
+
    		for (var i= 0; i < nelementos; i++) {
 				
+   			
 				
 				/*var id = lista_dptos[i].children[0].textContent;
 				var nombre = lista_dptos[i].children[1].textContent;*/ //FORMA MÁS ELEGANTE Y LÓGICA, PERO NO COMPATIBLE CON IE :S
